@@ -49,6 +49,9 @@ group :development, :test do
 
   # Omakase Ruby styling [https://github.com/rails/rubocop-rails-omakase/]
   gem "rubocop-rails-omakase", require: false
+
+  # Used by ERB Formatter/Beautify extension (aliariff.vscode-erb-beautify) for format-on-save
+  gem "htmlbeautifier", require: false
 end
 
 group :development do
