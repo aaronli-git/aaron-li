@@ -28,9 +28,3 @@ bin/rails server
 
 Then open `http://localhost:3000` in your browser to view the site.
 
-### Customizing the portfolio
-
-- **Projects**: Edit the `@projects` list in `app/controllers/home_controller.rb` to add real project names, descriptions, tech stacks, and links.
-- **Copy and sections**: Update text in `app/views/home/index.html.erb` (About, Projects, Experience, Contact).
-- **Styling**: Adjust colors, layout, and spacing in `app/assets/stylesheets/application.css`.
-
