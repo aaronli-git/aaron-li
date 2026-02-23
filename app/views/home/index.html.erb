@@ -1,0 +1,95 @@
+<main class="page">
+  <header class="hero">
+    <div class="hero-inner">
+      <p class="eyebrow">Software Engineer</p>
+      <h1 class="hero-title"><span>Aaron Li</span></h1>
+
+      <div class="hero-about">
+        <div class="hero-about-block">
+          <h2 class="hero-about-title">Background & interests</h2>
+          <p>
+                My background spans full‑stack product engineering, with a focus on shipping end‑to‑end features and collaborating
+            closely with design and product. I’m especially interested in systems that make developers more productive and
+            help teams move quickly without sacrificing reliability.
+          </p>
+        </div>
+
+        <div class="hero-about-block">
+          <h2 class="hero-about-title">Engineering expertise</h2>
+          <p>
+            I enjoy working on distributed systems, API design, performance optimization, and building maintainable codebases.
+            I care a lot about clear abstractions, great observability, and pragmatic engineering practices that scale with a team.
+          </p>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <section id="projects-work" class="section">
+    <div class="section-header">
+      <h2>Projects & Work</h2>
+    </div>
+
+    <div class="projects-work-list">
+      <% @projects.each do |project| %>
+        <article class="card card-horizontal">
+          <div class="card-media-placeholder">
+            <% if project[:image].present? %>
+              <%= image_tag project[:image], class: "card-media-image", alt: "#{project[:name]} preview" %>
+            <% else %>
+              <span class="card-media-label">Project</span>
+            <% end %>
+          </div>
+          <div class="card-body">
+            <h3><%= project[:name] %></h3>
+            <p class="project-description"><%= project[:description] %></p>
+            <ul class="pill-list">
+              <% project[:tech].each do |tag| %>
+                <li class="pill"><%= tag %></li>
+              <% end %>
+            </ul>
+            <% if project[:link].present? && project[:link] != "#" %>
+              <a href="<%= project[:link] %>" class="card-link inline-link" target="_blank" rel="noopener">View project</a>
+            <% end %>
+          </div>
+        </article>
+      <% end %>
+
+      <article class="card card-horizontal">
+        <div class="card-media-placeholder">
+          <span class="card-media-label">Past</span>
+        </div>
+        <div class="card-body">
+          <h3>Software Engineer · Previous Company</h3>
+          <p class="timeline-meta">Year – Year · Location</p>
+          <p class="project-description">
+            Another concise highlight of what you shipped or improved.
+          </p>
+        </div>
+      </article>
+    </div>
+  </section>
+
+  <footer class="page-footer">
+    <div class="footer-inner">
+      <div class="footer-links">
+        <a href="mailto:li.aaron36@gmail.com" class="footer-link">
+          <span class="footer-icon">✉</span>
+          <span>Email</span>
+        </a>
+        <a href="https://github.com/aaronli-git" class="footer-link" target="_blank" rel="noopener">
+          <span class="footer-icon footer-icon-github" aria-hidden="true">
+            <svg viewBox="0 0 16 16" class="footer-github-svg">
+              <path d="M8 0.197C3.58 0.197 0 3.777 0 8.197c0 3.53 2.292 6.523 5.47 7.585.4.074.547-.174.547-.386 0-.19-.007-.693-.01-1.36-2.225.483-2.695-1.073-2.695-1.073-.364-.924-.89-1.17-.89-1.17-.727-.497.055-.487.055-.487.804.057 1.227.826 1.227.826.714 1.223 1.872.87 2.329.665.072-.517.28-.87.508-1.07-1.777-.202-3.644-.888-3.644-3.953 0-.873.312-1.587.824-2.147-.083-.203-.357-1.017.078-2.12 0 0 .67-.214 2.2.82a7.63 7.63 0 0 1 2.004-.27c.68.003 1.366.092 2.005.27 1.53-1.034 2.198-.82 2.198-.82.437 1.103.163 1.917.08 2.12.513.56.823 1.274.823 2.147 0 3.073-1.87 3.748-3.652 3.947.287.247.543.734.543 1.48 0 1.069-.01 1.931-.01 2.194 0 .214.145.463.552.385C13.71 14.716 16 11.724 16 8.197 16 3.777 12.42 0.197 8 0.197Z" />
+            </svg>
+          </span>
+          <span>GitHub</span>
+        </a>
+        <a href="https://www.linkedin.com/in/a-aron-li" class="footer-link" target="_blank" rel="noopener">
+          <span class="footer-icon">in</span>
+          <span>LinkedIn</span>
+        </a>
+      </div>
+    </div>
+  </footer>
+</main>
