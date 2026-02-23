@@ -3,17 +3,13 @@
     <div class="hero-inner">
       <p class="eyebrow">Software Engineer</p>
       <h1 class="hero-title"><span>Aaron Li</span></h1>
-
       <div class="hero-about">
         <div class="hero-about-block">
           <h2 class="hero-about-title">Background & interests</h2>
           <p>
-                My background spans full‑stack product engineering, with a focus on shipping end‑to‑end features and collaborating
-            closely with design and product. I’m especially interested in systems that make developers more productive and
-            help teams move quickly without sacrificing reliability.
+            Outside of work, I spend much of my time in the gym and in the kitchen. Fitness keeps me grounded and disciplined, but cooking is where I truly slow down and enjoy the process. A routine I've recently been following is to learn a new dish every weekend to challenge myself and find new recipes I like.
           </p>
         </div>
-
         <div class="hero-about-block">
           <h2 class="hero-about-title">Engineering expertise</h2>
           <p>
@@ -24,57 +20,46 @@
       </div>
     </div>
   </header>
-
   <section id="projects-work" class="section">
     <div class="section-header">
       <h2>Projects & Work</h2>
     </div>
-
     <div class="projects-work-list">
-      <% @projects.each do |project| %>
+      <% @projects_work.each do |entry| %>
         <article class="card card-horizontal">
           <div class="card-media-placeholder">
-            <% if project[:image].present? %>
-              <%= image_tag project[:image], class: "card-media-image", alt: "#{project[:name]} preview" %>
+            <% if entry[:image].present? %>
+              <%= image_tag entry[:image], class: "card-media-image", alt: "#{entry[:title]} preview" %>
             <% else %>
-              <span class="card-media-label">Project</span>
+              <span class="card-media-label">Work</span>
             <% end %>
           </div>
           <div class="card-body">
-            <h3><%= project[:name] %></h3>
-            <p class="project-description"><%= project[:description] %></p>
-            <ul class="pill-list">
-              <% project[:tech].each do |tag| %>
-                <li class="pill"><%= tag %></li>
-              <% end %>
-            </ul>
-            <% if project[:link].present? && project[:link] != "#" %>
-              <a href="<%= project[:link] %>" class="card-link inline-link" target="_blank" rel="noopener">View project</a>
+            <h3><%= entry[:title] %></h3>
+            <% if entry[:meta].is_a?(String) %>
+              <p class="timeline-meta"><%= entry[:meta] %></p>
+            <% end %>
+            <p class="project-description"><%= entry[:description] %></p>
+            <% if entry[:meta].is_a?(Array) %>
+              <ul class="pill-list">
+                <% entry[:meta].each do |tag| %>
+                  <li class="pill"><%= tag %></li>
+                <% end %>
+              </ul>
+            <% end %>
+            <% if entry[:link].present? && entry[:link] != "#" %>
+              <a href="<%= entry[:link] %>" class="card-link inline-link" target="_blank" rel="noopener">View project</a>
             <% end %>
           </div>
         </article>
       <% end %>
-
-      <article class="card card-horizontal">
-        <div class="card-media-placeholder">
-          <span class="card-media-label">Past</span>
-        </div>
-        <div class="card-body">
-          <h3>Software Engineer · Previous Company</h3>
-          <p class="timeline-meta">Year – Year · Location</p>
-          <p class="project-description">
-            Another concise highlight of what you shipped or improved.
-          </p>
-        </div>
-      </article>
     </div>
   </section>
-
   <footer class="page-footer">
     <div class="footer-inner">
       <div class="footer-links">
         <a href="mailto:li.aaron36@gmail.com" class="footer-link">
-          <span class="footer-icon">✉</span>
+          <span class="footer-icon" aria-hidden="true">@</span>
           <span>Email</span>
         </a>
         <a href="https://github.com/aaronli-git" class="footer-link" target="_blank" rel="noopener">
