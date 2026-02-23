@@ -1,5 +1,3 @@
-# Personal site – Aaron Li
-
 This is a small Ruby on Rails application used as a personal website and portfolio to showcase software engineering work.
 
 ### Stack
